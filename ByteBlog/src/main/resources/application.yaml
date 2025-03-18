@@ -1,0 +1,62 @@
+spring:
+  config:
+    import: classpath:secrets.properties
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+        
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: none  # Since we are using JDBC Template, JPA is not needed
+  
+  security:
+      oauth2:
+        client:
+          registration:
+            google:
+              client-id: ${CLIENT_ID}
+              client-secret: ${CLIENT_SECRET}
+              scope: profile, email
+              
+  cache:
+    type: redis             
+              
+  data:
+    redis:
+      host: localhost
+      port: 6379
+               
+  mail:
+   host: smtp.gmail.com
+   port: 587
+   username: ${MAIL_USERNAME}
+   password: ${MAIL_PASSWORD}
+   properties:
+     mail:
+       smtp:
+        auth: true
+        starttls:
+          enable: true
+          
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 3600000
+  
+logging:
+  level:
+      root: INFO
+      '[org.springframework.jdbc.core]': DEBUG
+ 
+  
+      
+
+  
+
+
