@@ -7,7 +7,6 @@ It supports both traditional JWT-based authentication as well as OAuth2 login.
 Admin users have additional privileges such as deleting any blogs or comments with inappropriate content and notifying users via email.
 
 ## Features
-
 - **Blog Management:**  
   - Create, retrieve, update, and delete blogs.
   - Retrieve all blogs or a specific blog by ID.
